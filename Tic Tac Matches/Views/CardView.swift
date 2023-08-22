@@ -17,10 +17,12 @@ struct CardView: View {
             Spacer()
             HStack {
                 Label("\(match.players.map { $0.name }.joined(separator: ", "))", systemImage: "person.2")
+                    .labelStyle(.leadingIcon)
                 Spacer()
                 Label("\(match.boardSize)", systemImage: "checkerboard.rectangle")
                     .labelStyle(.trailingIcon)
             }
+            .padding(.trailing, 10)
             .font(.caption)
         }
         .padding(.vertical)

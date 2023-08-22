@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BF506FB42A9495D400989857 /* LeadingIconUpdatedStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF506FB32A9495D400989857 /* LeadingIconUpdatedStyle.swift */; };
 		BF67E1062A932AF600071F30 /* TicTacMatchesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF67E1052A932AF600071F30 /* TicTacMatchesApp.swift */; };
 		BF67E1082A932AF600071F30 /* BoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF67E1072A932AF600071F30 /* BoardView.swift */; };
 		BF67E10A2A932AF700071F30 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF67E1092A932AF700071F30 /* Assets.xcassets */; };
@@ -47,6 +48,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BF506FB32A9495D400989857 /* LeadingIconUpdatedStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeadingIconUpdatedStyle.swift; sourceTree = "<group>"; };
 		BF67E1022A932AF600071F30 /* Tic Tac Matches.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Tic Tac Matches.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF67E1052A932AF600071F30 /* TicTacMatchesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicTacMatchesApp.swift; sourceTree = "<group>"; };
 		BF67E1072A932AF600071F30 /* BoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardView.swift; sourceTree = "<group>"; };
@@ -186,6 +188,7 @@
 			isa = PBXGroup;
 			children = (
 				BFD99C252A934656005317F7 /* TrailingIconLabelStyle.swift */,
+				BF506FB32A9495D400989857 /* LeadingIconUpdatedStyle.swift */,
 			);
 			path = Styles;
 			sourceTree = "<group>";
@@ -341,6 +344,7 @@
 				BFD99C282A9356E7005317F7 /* Match.swift in Sources */,
 				BFD99C2F2A935B4E005317F7 /* CardView.swift in Sources */,
 				BFD99C342A936105005317F7 /* DetailEditView.swift in Sources */,
+				BF506FB42A9495D400989857 /* LeadingIconUpdatedStyle.swift in Sources */,
 				BFD99C262A934656005317F7 /* TrailingIconLabelStyle.swift in Sources */,
 				BFD99C322A93608F005317F7 /* NewMatchSheet.swift in Sources */,
 			);
