@@ -15,7 +15,7 @@ struct NewMatchSheet: View {
     
     var body: some View {
         NavigationStack {
-            DetailEditView(match: $newMatch)
+            DetailEditView(match: $newMatch, isEdit: false)
                 .toolbar {
                     ToolbarItem(placement: .cancellationAction) {
                         Button("Dismiss") {

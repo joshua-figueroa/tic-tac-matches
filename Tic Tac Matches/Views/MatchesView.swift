@@ -72,6 +72,6 @@ struct MatchesView: View {
 
 struct MatchView_Previews: PreviewProvider {
     static var previews: some View {
-        MatchesView(matches: .constant([]), saveAction: {})
+        MatchesView(matches: .constant(Match.mockMatches), saveAction: {})
     }
 }
