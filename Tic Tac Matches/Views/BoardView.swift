@@ -13,6 +13,7 @@ struct BoardView: View {
     @State private var currentPlayer = 1
     @State private var showAlert = false
     @State private var winningCombo: [[Int]]?
+    @State private var isTied = false
     @Environment(\.presentationMode) var presentationMode
     
     var body: some View {
@@ -77,7 +78,7 @@ struct BoardView: View {
         .alert(isPresented: $showAlert) {
             Alert(
                 title: Text("Tic Tac Ding!"),
-                message: Text("Player \(currentPlayer == 1 ? "X" : "O") Won!"),
+                message: Text(getAlertMsg()),
                 primaryButton: .destructive(Text("Reset")) {
                     resetBoard()
                 },
@@ -132,6 +133,10 @@ struct BoardView: View {
                 winningCombo = [[0, i], [1, i], [2, i]]
             }
         }
+        
+        if !showAlert {
+            isTied = checkForTie()
+        }
     }
     
     private func getStrokeColor(cell: Int, row: Int, col: Int) -> Color {
@@ -151,10 +156,35 @@ struct BoardView: View {
     }
     
     private func saveBoard() {
-        let history = History(players: match.players, winner: match.players[currentPlayer - 1], size: match.boardSize, board: Board(config: board, winningCombo: winningCombo!))
+        var history: History
+        
+        if isTied {
+            history = History(players: match.players, size: match.boardSize, board: Board(config: board))
+        } else {
+            history = History(players: match.players, winner: match.players[currentPlayer - 1], size: match.boardSize, board: Board(config: board, winningCombo: winningCombo!))
+        }
         
         match.history.insert(history, at: 0)
         presentationMode.wrappedValue.dismiss()
+    }
+    
+    private func checkForTie() -> Bool {
+        for row in board {
+            for col in row {
+                if col == 0 {
+                    return false
+                }
+            }
+        }
+        showAlert = true
+        return true
+    }
+    
+    private func getAlertMsg() -> String {
+        if isTied {
+            return "You are tied!"
+        }
+        return "\(match.players[currentPlayer - 1].name) (Player \(currentPlayer == 1 ? "X" : "O")) Won!"
     }
 }
 

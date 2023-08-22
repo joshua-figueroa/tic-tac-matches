@@ -11,9 +11,10 @@ struct History: Identifiable, Codable {
     let id: UUID
     let date: Date
     var players: [Match.Player]
-    var winner: Match.Player
+    var winner: Match.Player?
     var boardSize: Int
     var board: Board
+    var isTied: Bool
     
     init(id: UUID = UUID(), date: Date = Date(), players: [Match.Player], winner: Match.Player, size: Int, board: Board) {
         self.id = id
@@ -22,6 +23,16 @@ struct History: Identifiable, Codable {
         self.winner = winner
         self.boardSize = size
         self.board = board
+        self.isTied = false
+    }
+    
+    init(id: UUID = UUID(), date: Date = Date(), players: [Match.Player], size: Int, board: Board) {
+        self.id = id
+        self.date = date
+        self.players = players
+        self.boardSize = size
+        self.board = board
+        self.isTied = true
     }
 }
 

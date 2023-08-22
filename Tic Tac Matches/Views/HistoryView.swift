@@ -13,7 +13,11 @@ struct HistoryView: View {
     
     init(history: History) {
         self.history = history
-        self.winnerIndex = history.players.firstIndex(of: history.winner)! + 1
+        if history.isTied {
+            self.winnerIndex = -1
+        } else {
+            self.winnerIndex = history.players.firstIndex(of: history.winner!)! + 1
+        }
     }
     
     var body: some View {
@@ -43,12 +47,17 @@ struct HistoryView: View {
             .padding(.horizontal, 60)
             
             HStack(alignment: .center) {
-                Text("Winner:")
-                    .font(.title)
-                Label("(\(history.winner.name))", systemImage: getSystemImage(index: winnerIndex))
-                    .labelStyle(.trailingIcon)
-                    .foregroundColor(getColor(player: winnerIndex))
-                    .font(.title)
+                if history.isTied {
+                    Text("Tied!")
+                        .font(.title)
+                } else {
+                    Text("Winner:")
+                        .font(.title)
+                    Label("(\(history.winner!.name))", systemImage: getSystemImage(index: winnerIndex))
+                        .labelStyle(.trailingIcon)
+                        .foregroundColor(getColor(player: winnerIndex))
+                        .font(.title)
+                }
             }
             .padding(.top, 30)
             .padding(.bottom, 20)
@@ -96,7 +105,7 @@ struct HistoryView: View {
     }
     
     private func getStrokeColor(cell: Int, row: Int, col: Int) -> Color {
-        if history.board.winningCombo.contains([row, col]) {
+        if !history.isTied && history.board.winningCombo!.contains([row, col]) {
             return getColor(player: winnerIndex)
         }
         

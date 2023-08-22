@@ -10,12 +10,17 @@ import Foundation
 struct Board: Identifiable, Codable {
     let id: UUID
     var config: [[Int]]
-    var winningCombo: [[Int]]
+    var winningCombo: [[Int]]?
     
     init(id: UUID = UUID(), config: [[Int]], winningCombo: [[Int]]) {
         self.id = id
         self.config = config
         self.winningCombo = winningCombo
+    }
+    
+    init(id: UUID = UUID(), config: [[Int]]) {
+        self.id = id
+        self.config = config
     }
 }
 
