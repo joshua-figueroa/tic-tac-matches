@@ -25,11 +25,15 @@ struct MatchesView: View {
                             .foregroundColor(.gray)
                     }
                 }
-                List($matches, editActions: .delete) { $match in
-                    NavigationLink(destination: DetailView(match: $match)) {
-                        CardView(match: match)
+                List {
+                    ForEach($matches, id: \.id) { $match in
+                        NavigationLink(destination: DetailView(match: $match)) {
+                            CardView(match: match)
+                        }
+                        .listRowBackground(match.theme.mainColor)
                     }
-                    .listRowBackground(match.theme.mainColor)
+                    .onDelete(perform: delete)
+                    .onMove(perform: move)
                 }
             }
             .navigationTitle("Tic Tac Matches")
@@ -40,6 +44,11 @@ struct MatchesView: View {
                     Image(systemName: "plus")
                 }
                 .accessibilityLabel("New Match")
+                
+                if matches.count > 1 {
+                    EditButton()
+                    .accessibilityLabel("Edit Match position")
+                }
             }
         }
         .sheet(isPresented: $newMatch) {
@@ -50,6 +59,14 @@ struct MatchesView: View {
                 saveAction()
             }
         }
+    }
+    
+    func delete(at offsets: IndexSet) {
+        matches.remove(atOffsets: offsets)
+    }
+
+    func move(from sourceIndices: IndexSet, to destinationIndex: Int) {
+        matches.move(fromOffsets: sourceIndices, toOffset: destinationIndex)
     }
 }
 
