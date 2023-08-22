@@ -13,7 +13,7 @@ struct MatchesView: View {
     var body: some View {
         NavigationStack {
             VStack {
-                List($matches) { $match in
+                List($matches, editActions: .delete) { $match in
                     NavigationLink(destination: DetailView(match: $match)) {
                         CardView(match: match)
                     }
