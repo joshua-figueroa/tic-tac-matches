@@ -121,7 +121,6 @@
 			isa = PBXGroup;
 			children = (
 				BFD99C302A93607D005317F7 /* Sheets */,
-				BFD99C2B2A935AB5005317F7 /* Screens */,
 				BFD99C242A934645005317F7 /* Styles */,
 				BF67E1302A933DE400071F30 /* Models */,
 				BF67E12F2A932B1600071F30 /* Views */,
@@ -189,13 +188,6 @@
 				BFD99C252A934656005317F7 /* TrailingIconLabelStyle.swift */,
 			);
 			path = Styles;
-			sourceTree = "<group>";
-		};
-		BFD99C2B2A935AB5005317F7 /* Screens */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Screens;
 			sourceTree = "<group>";
 		};
 		BFD99C302A93607D005317F7 /* Sheets */ = {
