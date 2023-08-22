@@ -44,7 +44,7 @@ extension Match {
     }
     
     static var emptyMatch: Match {
-        Match(title: "", size: 3, theme: .sky, players: [])
+        Match(title: "", size: 3, theme: .navy, players: [])
     }
 }
 

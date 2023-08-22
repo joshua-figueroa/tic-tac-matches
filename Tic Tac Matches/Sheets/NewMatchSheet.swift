@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct NewMatchSheet: View {
+    @AppStorage("isFirstLaunch") var isFirstLaunch: Bool = true
     @State private var newMatch = Match.emptyMatch
     @Binding var matches: [Match]
     @Binding var isPresent: Bool
@@ -27,6 +28,7 @@ struct NewMatchSheet: View {
                                 matches.append(newMatch)
                             }
                             isPresent = false
+                            isFirstLaunch = false
                         }
                     }
                 }
