@@ -9,7 +9,6 @@ import SwiftUI
 
 struct DetailView: View {
     @Binding var match: Match
-    
     @State private var editingMatch = Match.emptyMatch
     @State private var isPresentingEditView = false
     

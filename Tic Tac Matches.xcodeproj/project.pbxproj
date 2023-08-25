@@ -10,6 +10,17 @@
 		BF506FB42A9495D400989857 /* LeadingIconUpdatedStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF506FB32A9495D400989857 /* LeadingIconUpdatedStyle.swift */; };
 		BF506FB62A9499BD00989857 /* MatchStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF506FB52A9499BD00989857 /* MatchStore.swift */; };
 		BF506FB82A94A8C200989857 /* EditMatchSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF506FB72A94A8C200989857 /* EditMatchSheet.swift */; };
+		BF506FD82A9909BF00989857 /* CurrentMatchAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF506FD72A9909BF00989857 /* CurrentMatchAttributes.swift */; };
+		BF506FDC2A9912DE00989857 /* LiveActivityManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF506FDB2A9912DE00989857 /* LiveActivityManager.swift */; };
+		BF506FE52A9925F000989857 /* WidgetKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF506FBF2A99038C00989857 /* WidgetKit.framework */; };
+		BF506FE62A9925F000989857 /* SwiftUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BF506FC12A99038C00989857 /* SwiftUI.framework */; };
+		BF506FE92A9925F000989857 /* Match_WidgetBundle.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF506FE82A9925F000989857 /* Match_WidgetBundle.swift */; };
+		BF506FEB2A9925F000989857 /* Match_Widget.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF506FEA2A9925F000989857 /* Match_Widget.swift */; };
+		BF506FEE2A9925F200989857 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF506FED2A9925F200989857 /* Assets.xcassets */; };
+		BF506FF02A9925F200989857 /* Match_Widget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = BF506FEC2A9925F000989857 /* Match_Widget.intentdefinition */; };
+		BF506FF12A9925F200989857 /* Match_Widget.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = BF506FEC2A9925F000989857 /* Match_Widget.intentdefinition */; };
+		BF506FF42A9925F200989857 /* Match WidgetExtension.appex in Embed Foundation Extensions */ = {isa = PBXBuildFile; fileRef = BF506FE42A9925F000989857 /* Match WidgetExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		BF506FF82A99262100989857 /* CurrentMatchAttributes.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF506FD72A9909BF00989857 /* CurrentMatchAttributes.swift */; };
 		BF67E1062A932AF600071F30 /* TicTacMatchesApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF67E1052A932AF600071F30 /* TicTacMatchesApp.swift */; };
 		BF67E1082A932AF600071F30 /* BoardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF67E1072A932AF600071F30 /* BoardView.swift */; };
 		BF67E10A2A932AF700071F30 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BF67E1092A932AF700071F30 /* Assets.xcassets */; };
@@ -33,6 +44,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		BF506FF22A9925F200989857 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BF67E0FA2A932AF600071F30 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = BF506FE32A9925F000989857;
+			remoteInfo = "Match WidgetExtension";
+		};
 		BF67E1132A932AF700071F30 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = BF67E0FA2A932AF600071F30 /* Project object */;
@@ -49,10 +67,34 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		BF506FD62A99038E00989857 /* Embed Foundation Extensions */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 13;
+			files = (
+				BF506FF42A9925F200989857 /* Match WidgetExtension.appex in Embed Foundation Extensions */,
+			);
+			name = "Embed Foundation Extensions";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		BF506FB32A9495D400989857 /* LeadingIconUpdatedStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeadingIconUpdatedStyle.swift; sourceTree = "<group>"; };
 		BF506FB52A9499BD00989857 /* MatchStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MatchStore.swift; sourceTree = "<group>"; };
 		BF506FB72A94A8C200989857 /* EditMatchSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditMatchSheet.swift; sourceTree = "<group>"; };
+		BF506FBF2A99038C00989857 /* WidgetKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WidgetKit.framework; path = System/Library/Frameworks/WidgetKit.framework; sourceTree = SDKROOT; };
+		BF506FC12A99038C00989857 /* SwiftUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SwiftUI.framework; path = System/Library/Frameworks/SwiftUI.framework; sourceTree = SDKROOT; };
+		BF506FD72A9909BF00989857 /* CurrentMatchAttributes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentMatchAttributes.swift; sourceTree = "<group>"; };
+		BF506FDB2A9912DE00989857 /* LiveActivityManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LiveActivityManager.swift; sourceTree = "<group>"; };
+		BF506FE42A9925F000989857 /* Match WidgetExtension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Match WidgetExtension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
+		BF506FE82A9925F000989857 /* Match_WidgetBundle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Match_WidgetBundle.swift; sourceTree = "<group>"; };
+		BF506FEA2A9925F000989857 /* Match_Widget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Match_Widget.swift; sourceTree = "<group>"; };
+		BF506FEC2A9925F000989857 /* Match_Widget.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = Match_Widget.intentdefinition; sourceTree = "<group>"; };
+		BF506FED2A9925F200989857 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		BF506FEF2A9925F200989857 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BF67E1022A932AF600071F30 /* Tic Tac Matches.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Tic Tac Matches.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BF67E1052A932AF600071F30 /* TicTacMatchesApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TicTacMatchesApp.swift; sourceTree = "<group>"; };
 		BF67E1072A932AF600071F30 /* BoardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BoardView.swift; sourceTree = "<group>"; };
@@ -79,6 +121,15 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		BF506FE12A9925F000989857 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BF506FE62A9925F000989857 /* SwiftUI.framework in Frameworks */,
+				BF506FE52A9925F000989857 /* WidgetKit.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		BF67E0FF2A932AF600071F30 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -103,12 +154,35 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BF506FBE2A99038C00989857 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BF506FBF2A99038C00989857 /* WidgetKit.framework */,
+				BF506FC12A99038C00989857 /* SwiftUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		BF506FE72A9925F000989857 /* Match Widget */ = {
+			isa = PBXGroup;
+			children = (
+				BF506FE82A9925F000989857 /* Match_WidgetBundle.swift */,
+				BF506FEA2A9925F000989857 /* Match_Widget.swift */,
+				BF506FEC2A9925F000989857 /* Match_Widget.intentdefinition */,
+				BF506FED2A9925F200989857 /* Assets.xcassets */,
+				BF506FEF2A9925F200989857 /* Info.plist */,
+			);
+			path = "Match Widget";
+			sourceTree = "<group>";
+		};
 		BF67E0F92A932AF600071F30 = {
 			isa = PBXGroup;
 			children = (
 				BF67E1042A932AF600071F30 /* Tic Tac Matches */,
 				BF67E1152A932AF700071F30 /* Tic Tac Matches Tests */,
 				BF67E11F2A932AF700071F30 /* Tic Tac Matches UITests */,
+				BF506FE72A9925F000989857 /* Match Widget */,
+				BF506FBE2A99038C00989857 /* Frameworks */,
 				BF67E1032A932AF600071F30 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -119,6 +193,7 @@
 				BF67E1022A932AF600071F30 /* Tic Tac Matches.app */,
 				BF67E1122A932AF700071F30 /* Tic Tac MatchesTests.xctest */,
 				BF67E11C2A932AF700071F30 /* Tic Tac MatchesUITests.xctest */,
+				BF506FE42A9925F000989857 /* Match WidgetExtension.appex */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -182,9 +257,11 @@
 			children = (
 				BF67E1312A933DF000071F30 /* Theme.swift */,
 				BFD99C272A9356E7005317F7 /* Match.swift */,
+				BF506FD72A9909BF00989857 /* CurrentMatchAttributes.swift */,
 				BFD99C292A935758005317F7 /* History.swift */,
 				BFD99C392A9368E0005317F7 /* Board.swift */,
 				BF506FB52A9499BD00989857 /* MatchStore.swift */,
+				BF506FDB2A9912DE00989857 /* LiveActivityManager.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -210,6 +287,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		BF506FE32A9925F000989857 /* Match WidgetExtension */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = BF506FF52A9925F200989857 /* Build configuration list for PBXNativeTarget "Match WidgetExtension" */;
+			buildPhases = (
+				BF506FE02A9925F000989857 /* Sources */,
+				BF506FE12A9925F000989857 /* Frameworks */,
+				BF506FE22A9925F000989857 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Match WidgetExtension";
+			productName = "Match WidgetExtension";
+			productReference = BF506FE42A9925F000989857 /* Match WidgetExtension.appex */;
+			productType = "com.apple.product-type.app-extension";
+		};
 		BF67E1012A932AF600071F30 /* Tic Tac Matches */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = BF67E1262A932AF700071F30 /* Build configuration list for PBXNativeTarget "Tic Tac Matches" */;
@@ -217,10 +311,12 @@
 				BF67E0FE2A932AF600071F30 /* Sources */,
 				BF67E0FF2A932AF600071F30 /* Frameworks */,
 				BF67E1002A932AF600071F30 /* Resources */,
+				BF506FD62A99038E00989857 /* Embed Foundation Extensions */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				BF506FF32A9925F200989857 /* PBXTargetDependency */,
 			);
 			name = "Tic Tac Matches";
 			productName = "tic-tac-toe";
@@ -273,6 +369,9 @@
 				LastSwiftUpdateCheck = 1430;
 				LastUpgradeCheck = 1430;
 				TargetAttributes = {
+					BF506FE32A9925F000989857 = {
+						CreatedOnToolsVersion = 14.3.1;
+					};
 					BF67E1012A932AF600071F30 = {
 						CreatedOnToolsVersion = 14.3.1;
 					};
@@ -302,11 +401,20 @@
 				BF67E1012A932AF600071F30 /* Tic Tac Matches */,
 				BF67E1112A932AF700071F30 /* Tic Tac MatchesTests */,
 				BF67E11B2A932AF700071F30 /* Tic Tac MatchesUITests */,
+				BF506FE32A9925F000989857 /* Match WidgetExtension */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		BF506FE22A9925F000989857 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BF506FEE2A9925F200989857 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		BF67E1002A932AF600071F30 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -333,6 +441,17 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		BF506FE02A9925F000989857 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BF506FE92A9925F000989857 /* Match_WidgetBundle.swift in Sources */,
+				BF506FEB2A9925F000989857 /* Match_Widget.swift in Sources */,
+				BF506FF82A99262100989857 /* CurrentMatchAttributes.swift in Sources */,
+				BF506FF02A9925F200989857 /* Match_Widget.intentdefinition in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		BF67E0FE2A932AF600071F30 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -342,6 +461,7 @@
 				BFD99C2A2A935758005317F7 /* History.swift in Sources */,
 				BF67E1322A933DF000071F30 /* Theme.swift in Sources */,
 				BFD99C3C2A9369B3005317F7 /* DetailView.swift in Sources */,
+				BF506FDC2A9912DE00989857 /* LiveActivityManager.swift in Sources */,
 				BF67E1082A932AF600071F30 /* BoardView.swift in Sources */,
 				BFD99C382A936406005317F7 /* ThemeView.swift in Sources */,
 				BF67E1062A932AF600071F30 /* TicTacMatchesApp.swift in Sources */,
@@ -355,6 +475,8 @@
 				BFD99C262A934656005317F7 /* TrailingIconLabelStyle.swift in Sources */,
 				BF506FB62A9499BD00989857 /* MatchStore.swift in Sources */,
 				BFD99C322A93608F005317F7 /* NewMatchSheet.swift in Sources */,
+				BF506FD82A9909BF00989857 /* CurrentMatchAttributes.swift in Sources */,
+				BF506FF12A9925F200989857 /* Match_Widget.intentdefinition in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -378,6 +500,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		BF506FF32A9925F200989857 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = BF506FE32A9925F000989857 /* Match WidgetExtension */;
+			targetProxy = BF506FF22A9925F200989857 /* PBXContainerItemProxy */;
+		};
 		BF67E1142A932AF700071F30 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = BF67E1012A932AF600071F30 /* Tic Tac Matches */;
@@ -391,6 +518,60 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		BF506FF62A9925F200989857 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4QN838772C;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Match Widget/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Match Widget";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.joshuafigueroa.tic-tac-matches.Match-Widget";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		BF506FF72A9925F200989857 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = 4QN838772C;
+				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Match Widget/Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Match Widget";
+				INFOPLIST_KEY_NSHumanReadableCopyright = "";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@executable_path/../../Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = "com.joshuafigueroa.tic-tac-matches.Match-Widget";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		BF67E1242A932AF700071F30 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -508,6 +689,7 @@
 		BF67E1272A932AF700071F30 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -515,8 +697,10 @@
 				DEVELOPMENT_TEAM = 4QN838772C;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Tic-Tac-Matches-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Tic Tac Matches";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.board-games";
+				INFOPLIST_KEY_NSSupportsLiveActivities = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -538,6 +722,7 @@
 		BF67E1282A932AF700071F30 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
@@ -545,8 +730,10 @@
 				DEVELOPMENT_TEAM = 4QN838772C;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Tic-Tac-Matches-Info.plist";
 				INFOPLIST_KEY_CFBundleDisplayName = "Tic Tac Matches";
 				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.board-games";
+				INFOPLIST_KEY_NSSupportsLiveActivities = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -644,6 +831,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		BF506FF52A9925F200989857 /* Build configuration list for PBXNativeTarget "Match WidgetExtension" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				BF506FF62A9925F200989857 /* Debug */,
+				BF506FF72A9925F200989857 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		BF67E0FD2A932AF600071F30 /* Build configuration list for PBXProject "Tic Tac Matches" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

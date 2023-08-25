@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import ActivityKit
 
 struct BoardView: View {
     @Binding var match: Match
@@ -14,11 +15,13 @@ struct BoardView: View {
     @State private var showAlert = false
     @State private var winningCombo: [[Int]]?
     @State private var isTied = false
+    @State private var activity: Activity<CurrentMatchAttributes>? = nil
+    @State private var activityId: String = ""
     @Environment(\.presentationMode) var presentationMode
+    @Environment(\.scenePhase) private var scenePhase
     
     var body: some View {
         NavigationStack {
-            
             HStack {
                 VStack(spacing: 8) {
                     Label("Player", systemImage: "xmark")
@@ -80,12 +83,25 @@ struct BoardView: View {
                 title: Text("Tic Tac Ding!"),
                 message: Text(getAlertMsg()),
                 primaryButton: .destructive(Text("Reset")) {
+                    resetActivity()
                     resetBoard()
                 },
                 secondaryButton: .default((Text("Save"))) {
+                    resetActivity()
                     saveBoard()
                 }
             )
+        }
+        .onAppear() {
+            do {
+                activityId = try LiveActivityManager.startActivity(currentPlayer, match.players[currentPlayer - 1].name, getSystemImage(cellCount: currentPlayer),
+                match.title)
+            } catch {
+                print(error.localizedDescription)
+            }
+        }
+        .onDisappear() {
+            resetActivity()
         }
     }
     
@@ -94,6 +110,9 @@ struct BoardView: View {
         checkWinner()
         if !showAlert {
             currentPlayer = currentPlayer == 1 ? 2 : 1
+            Task {
+                await LiveActivityManager.updateActivity(id:activityId, currentPlayer ,match.players[currentPlayer - 1].name, getSystemImage(cellCount: currentPlayer), match.title)
+            }
         }
     }
     
@@ -185,6 +204,12 @@ struct BoardView: View {
             return "You are tied!"
         }
         return "\(match.players[currentPlayer - 1].name) (Player \(currentPlayer == 1 ? "X" : "O")) Won!"
+    }
+    
+    private func resetActivity() {
+        Task {
+            await LiveActivityManager.endActivity()
+        }
     }
 }
 
