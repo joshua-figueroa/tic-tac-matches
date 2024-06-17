@@ -18,11 +18,9 @@ struct DetailEditView: View {
                 TextField("Title", text: $match.title)
                 if !isEdit {
                     HStack {
-                        // Todo: Different board sizes
-                        Slider(value: $match.boardSizeInDouble, in: 3...5, step: 1) {
+                        Slider(value: $match.boardSizeInDouble, in: 3...5, step: 2) {
                             Text("Board Size")
                         }
-                        .disabled(true)
                         Spacer()
                         Text("\(match.boardSize) x \(match.boardSize) board size")
                             .accessibilityHidden(true)

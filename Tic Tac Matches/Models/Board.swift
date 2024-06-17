@@ -26,4 +26,5 @@ struct Board: Identifiable, Codable {
 
 extension Board {
     static var mockBoard = Board(config: [[1, 1, 2], [0, 1, 2], [0, 0, 2]], winningCombo: [[0, 0], [1, 0], [2, 0]])
+    static var mockBoardTied = Board(config: [[1, 2, 1], [1, 2, 1], [2, 1, 2]])
 }

@@ -10,6 +10,8 @@ import SwiftUI
 struct HistoryView: View {
     var history: History
     var winnerIndex: Int
+    var boardCap: CGFloat
+    var cellSpacing: CGFloat
     
     init(history: History) {
         self.history = history
@@ -18,6 +20,18 @@ struct HistoryView: View {
         } else {
             self.winnerIndex = history.players.firstIndex(of: history.winner!)! + 1
         }
+        
+        if history.boardSize == 3 {
+            self.boardCap = 20
+            self.cellSpacing = 20
+        } else {
+            self.boardCap = 12
+            self.cellSpacing = 10
+        }
+    }
+    
+    private var columns: [GridItem] {
+        Array(repeating: GridItem(.flexible(), spacing: cellSpacing), count: history.boardSize)
     }
     
     var body: some View {
@@ -63,27 +77,32 @@ struct HistoryView: View {
             .padding(.bottom, 20)
             
             VStack {
-                ForEach(Array(history.board.config.enumerated()), id: \.offset) { row, cols in
-                    HStack {
-                        ForEach(Array(cols.enumerated()), id: \.offset) { col, cell in
-                            Button(action: {}) {
-                                if cell > 0 {
-                                    Image(systemName: getSystemImage(index: cell))
-                                        .foregroundColor(getColor(player: cell))
-                                        .font(.largeTitle)
-                                } else {
-                                    Text("")
-                                        .padding()
+                GeometryReader { geometry in
+                    let buttonSizeFull = geometry.size.width / CGFloat(history.boardSize)
+                    let buttonSize = buttonSizeFull - boardCap
+                    
+                    LazyVGrid(columns: columns, spacing: cellSpacing) {
+                        ForEach(Array(history.board.config.enumerated()), id: \.offset) { row, cols in
+                            ForEach(Array(cols.enumerated()), id: \.offset) { col, cell in
+                                Button(action: {}) {
+                                    if cell > 0 {
+                                        Image(systemName: getSystemImage(index: cell))
+                                            .foregroundColor(getColor(player: cell))
+                                            .font(history.boardSize == 3 ? .largeTitle : .title2)
+                                    } else {
+                                        Text("")
+                                            .padding()
+                                    }
                                 }
+                                .frame(width: buttonSize, height: buttonSize)
+                                .background(RoundedRectangle(cornerRadius: 10).stroke(getStrokeColor(cell: cell, row: row, col: col), lineWidth: 2))
                             }
-                            .frame(width: 100, height: 100, alignment: .center)
-                            .background(RoundedRectangle(cornerRadius: 10).stroke(getStrokeColor(cell: cell, row: row, col: col), lineWidth: 2))
-                            .padding(5)
-                            .disabled(true)
                         }
                     }
+                    .padding()
                 }
             }
+            .padding()
             
             Spacer()
             .navigationTitle("Tic Tac Toe")
@@ -113,8 +132,10 @@ struct HistoryView: View {
     }
 }
 
-struct HistoryView_Previews: PreviewProvider {
-    static var previews: some View {
-        HistoryView(history: History.mockHistory)
-    }
+#Preview("History: 3x3") {
+    HistoryView(history: History.mockHistory)
+}
+
+#Preview("History: 5x5") {
+    HistoryView(history: History.mockHistoryTied)
 }

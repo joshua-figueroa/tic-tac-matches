@@ -21,9 +21,15 @@ struct DetailView: View {
     var body: some View {
         List {
             Section(header: Text("Match Info")) {
-                NavigationLink(destination: BoardView(match: $match)) {
-                    Label("Start Match", systemImage: "play")
-                        .font(.headline)
+                if match.paused {
+                    NavigationLink(destination: BoardView(match: $match, newMatch: false)) {
+                        Label("Resume Match", systemImage: "playpause")
+                            .font(.headline)
+                    }
+                }
+                NavigationLink(destination: BoardView(match: $match, newMatch: true)) {
+                    Label(match.paused ? "Start New Match" : "Start Match", systemImage: "play")
+                        .font(match.paused ? .body : .headline)
                 }
                 HStack {
                     Label("Board Size", systemImage: "checkerboard.rectangle")
@@ -42,8 +48,13 @@ struct DetailView: View {
             }
             
             Section(header: Text("Players")) {
-                ForEach(match.players) { player in
-                    Label(player.name, systemImage: "person")
+                ForEach(Array(match.players.enumerated()), id: \.offset) { index, player in
+                    HStack {
+                        Label(player.name, systemImage: "person")
+                        Spacer()
+                        Image(systemName: index == 0 ? "xmark" : "circle")
+                            .foregroundColor(index == 0 ? Theme.poppy.mainColor : Theme.teal.mainColor)
+                    }
                 }
             }
             
@@ -54,10 +65,7 @@ struct DetailView: View {
                 
                 ForEach(match.history) { history in
                     NavigationLink(destination: HistoryView(history: history)) {
-                        HStack {
-                            Image(systemName: "calendar")
-                            Text(dateFormatter.string(from: history.date))
-                        }
+                        HistoryListView(history: history, theme: match.theme)
                     }
                 }
             }
@@ -93,6 +101,6 @@ struct DetailView: View {
 
 struct DetailView_Previews: PreviewProvider {
     static var previews: some View {
-        DetailView(match: .constant(Match.mockMatches[0]))
+        DetailView(match: .constant(Match.mockMatches[1]))
     }
 }

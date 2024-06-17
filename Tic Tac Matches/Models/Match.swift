@@ -22,13 +22,26 @@ struct Match: Identifiable, Codable {
     }
     var players: [Player]
     var history: [History] = []
+    var paused: Bool
+    var pausedBoard: [[Int]]
+
     
-    init(id: UUID = UUID(), title: String, size: Int, theme: Theme, players: [String]) {
+    init(id: UUID = UUID(), title: String, size: Int, theme: Theme, players: [String], paused: Bool = false) {
         self.id = id
         self.title = title
         self.boardSize = size
         self.theme = theme
         self.players = players.map { Player(name: $0) }
+        self.paused = paused
+        self.pausedBoard = Array(repeating: Array(repeating: 0, count: size), count: size)
+    }
+    
+    mutating func deletePausedBoard() {
+        self.pausedBoard = Array(repeating: Array(repeating: 0, count: self.boardSize), count: self.boardSize)
+    }
+    
+    mutating func updateBoardStatus(board: [[Int]]) {
+        self.paused = board != Array(repeating: Array(repeating: 0, count: self.boardSize), count: self.boardSize)
     }
 }
 
@@ -51,7 +64,7 @@ extension Match {
 extension Match {
     static let mockMatches: [Match] = [
         Match(title: "Love Match", size: 3, theme: .tan, players: ["Joshua", "Fiona"]),
-        Match(title: "Dog Fight", size: 3, theme: .lavender, players: ["Dream", "Woody"]),
+        Match(title: "Dog Fight", size: 5, theme: .lavender, players: ["Dream", "Woody"], paused: true),
         Match(title: "Piggy Wrestle", size: 3, theme: .oxblood, players: ["Tootsie", "Olaf"])
     ]
 }

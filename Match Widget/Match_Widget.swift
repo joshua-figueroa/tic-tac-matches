@@ -32,13 +32,13 @@ struct Match_Widget: Widget {
                     Image(systemName: "checkerboard.rectangle")
                         .resizable()
                         .frame(width: 30.0, height: 30.0)
-                        .padding(.leading, 6)
+                        .padding(.leading, 8)
                 }
                 DynamicIslandExpandedRegion(.trailing) {
                     Image(systemName: context.state.icon)
                         .resizable()
                         .frame(width: 25.0, height: 25.0)
-                        .padding(.trailing, 6)
+                        .padding(.trailing, 8)
                         .foregroundColor(Color(context.state.theme))
                 }
                 DynamicIslandExpandedRegion(.bottom) {
@@ -54,6 +54,7 @@ struct Match_Widget: Widget {
                 }
             } compactLeading: {
                 Image(systemName: "checkerboard.rectangle")
+                    .padding(.leading, 8)
             } compactTrailing: {
                 Image(systemName: context.state.icon)
                     .foregroundColor(Color(context.state.theme))

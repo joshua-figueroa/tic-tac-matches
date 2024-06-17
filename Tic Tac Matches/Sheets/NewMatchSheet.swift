@@ -24,12 +24,11 @@ struct NewMatchSheet: View {
                     }
                     ToolbarItem(placement: .confirmationAction) {
                         Button("Add") {
-                            if !newMatch.title.isEmpty && newMatch.players.count == 2 {
-                                matches.append(newMatch)
-                            }
+                            matches.append(newMatch)
                             isPresent = false
                             isFirstLaunch = false
                         }
+                        .disabled(newMatch.title.isEmpty || newMatch.players.count < 2)
                     }
                 }
         }
